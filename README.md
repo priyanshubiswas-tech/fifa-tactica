@@ -55,7 +55,7 @@ The public product name is intentionally kept **out of every layer except the fr
 </table>
 
 <p align="center">
-  <img src="media/screenshots/chat-tactical-qa.jpg" width="60%" alt="Free-form tactical chat" />
+  <img src="media/screenshots/chat-tactical-qa.jpg" width="40%" alt="Free-form tactical chat" />
 </p>
 <p align="center"><sub><b>Ask the analyst anything</b><br/>Free-form questions route through the LangGraph agent for a real tactical answer, covering formation changes, personnel, and all.</sub></p>
 
