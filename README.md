@@ -11,7 +11,7 @@ The public product name is intentionally kept **out of every layer except the fr
 <p align="center">
   <img src="media/screenshots/login-select-federation.jpg" width="85%" alt="Login screen showing eight federation crests" />
 </p>
-<p align="center"><sub><b>No typing, no passwords.</b> Pick your federation's crest and you're in.</sub></p>
+<p align="center"><sub><b>No typing.</b> Pick your federation's crest and you're in.</sub></p>
 
 <table>
 <tr>
@@ -130,7 +130,7 @@ Add `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_API_KEY` any time to switc
 
 ## Architecture
 
-See `architecture/ARCHITECTURE.md` for the full narrative and `architecture/diagrams.md` for the diagrams (high-level flow, chatbot request flow, container/persistence layout, access-control matrix). For a browsable map of how every API/service/data store connects, open `obsidian-graph/` as an Obsidian vault (or just read the markdown; it renders fine on GitHub too).
+For a browsable map of how every API/service/data store connects, open `obsidian-graph/` as an Obsidian vault (or just read the markdown; it renders fine on GitHub too).
 
 ```mermaid
 flowchart LR
