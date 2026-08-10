@@ -4,8 +4,101 @@ A national-team manager console: log in by tapping your federation's crest (no t
 
 The public product name is intentionally kept **out of every layer except the frontend** — repo, services, database names, and code all use the neutral name `squad-console` so the brand can change later without touching infrastructure.
 
+## Screenshots
+
+<p align="center">
+  <img src="media/screenshots/login-select-federation.jpg" width="85%" alt="Login screen — eight federation crests" />
+</p>
+<p align="center"><sub><b>No typing, no passwords</b> — pick your federation's crest and you're in.</sub></p>
+
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="media/screenshots/dashboard-argentina.jpg" width="100%" alt="Argentina manager dashboard" /><br/>
+<sub><b>Your own squad, in your own colors</b><br/>Argentina's console — live formations, injuries, and top performers, all pulled from ClickHouse.</sub>
+</td>
+<td width="50%" align="center">
+<img src="media/screenshots/dashboard-portugal.jpg" width="100%" alt="Portugal manager dashboard" /><br/>
+<sub><b>Every federation gets its own theme</b><br/>Same layout, Portugal's palette — Roberto Martínez signed in.</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" align="center">
+<img src="media/screenshots/squad-full-roster-brazil.jpg" width="100%" alt="Brazil full squad roster" /><br/>
+<sub><b>Real 26-man rosters</b><br/>Every player, position, club, and rating — sourced from Wikipedia + TheSportsDB, not placeholders.</sub>
+</td>
+<td width="50%" align="center">
+<img src="media/screenshots/tactics-formations-portugal.jpg" width="100%" alt="Portugal tactics and formations" /><br/>
+<sub><b>Tactics & formations</b><br/>Three formation options per team with SVG pitch diagrams and a recommended shape.</sub>
+</td>
+</tr>
+</table>
+
+<p align="center">
+  <img src="media/screenshots/inspect-england-access-control.jpg" width="85%" alt="Inspecting England — access control" />
+</p>
+<p align="center"><sub><b>Inspect any rival, redacted</b><br/>Public stats and formation names stay visible; injuries, salaries, and training load lock behind "Private to England staff."</sub></p>
+
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="media/screenshots/private-fields-locked-closeup.jpg" width="100%" alt="Locked private fields close-up" /><br/>
+<sub><b>The same rule, every team</b><br/>Argentina's private panels, locked the same way when a rival manager looks in.</sub>
+</td>
+<td width="50%" align="center">
+<img src="media/screenshots/inspect-brazil-trophies.jpg" width="100%" alt="Brazil public trophy history" /><br/>
+<sub><b>Public history stays public</b><br/>Trophies and past results are visible to anyone inspecting Brazil.</sub>
+</td>
+</tr>
+</table>
+
+<p align="center">
+  <img src="media/screenshots/chat-tactical-qa.jpg" width="60%" alt="Free-form tactical chat" />
+</p>
+<p align="center"><sub><b>Ask the analyst anything</b><br/>Free-form questions route through the LangGraph agent for a real tactical answer — formation change, personnel, and all.</sub></p>
+
+**The hybrid chat: 3 chips, zero LLM**
+
+<table>
+<tr>
+<td width="33%" align="center">
+<img src="media/screenshots/chip-fitness-injury-risk.jpg" width="100%" alt="Fitness and injury risk chip report" /><br/>
+<sub><b>Fitness & Injury Risk</b><br/>Fatigue trend + current injuries, no LLM involved.</sub>
+</td>
+<td width="33%" align="center">
+<img src="media/screenshots/chip-top-performers.jpg" width="100%" alt="Top performers chip report" /><br/>
+<sub><b>Top Performers</b><br/>Ranked by live rating average, goals, and assists.</sub>
+</td>
+<td width="33%" align="center">
+<img src="media/screenshots/chip-financial-overview.jpg" width="100%" alt="Financial overview chip report" /><br/>
+<sub><b>Financial Overview</b><br/>Wage bill and expiring contracts, straight from ClickHouse.</sub>
+</td>
+</tr>
+</table>
+
+<p align="center">
+  <img src="media/screenshots/chart-argentina-vs-spain.jpg" width="75%" alt="Argentina vs Spain comparison chart" />
+</p>
+<p align="center"><sub><b>Charts generated on demand</b><br/>A free-form question ("compare my midfield to Spain's") still produces a real, freshly-generated chart — chart generation never depends on the LLM.</sub></p>
+
+**Under the hood**
+
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="media/screenshots/clickhouse-live-query.jpg" width="100%" alt="ClickHouse live query" /><br/>
+<sub><b>Real data, queried live</b><br/>One ClickHouse database per team — this is Brazil's actual wage table, not a mock.</sub>
+</td>
+<td width="50%" align="center">
+<img src="media/screenshots/docker-containers-healthy.jpg" width="100%" alt="Docker containers healthy" /><br/>
+<sub><b>Six containers, all healthy</b><br/>ClickHouse, ChromaDB, backend, frontend, Nginx, and Airflow on one Docker network.</sub>
+</td>
+</tr>
+</table>
+
 ## Table of contents
 
+- [Screenshots](#screenshots)
 - [Current status](#current-status)
 - [Architecture](#architecture)
 - [Repo layout](#repo-layout)
