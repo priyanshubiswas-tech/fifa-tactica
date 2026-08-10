@@ -83,18 +83,10 @@ The public product name is intentionally kept **out of every layer except the fr
 
 **Under the hood**
 
-<table>
-<tr>
-<td width="50%" align="center">
-<img src="media/screenshots/clickhouse-live-query.jpg" width="100%" alt="ClickHouse live query" /><br/>
-<sub><b>Real data, queried live</b><br/>One ClickHouse database per team — this is Brazil's actual wage table, not a mock.</sub>
-</td>
-<td width="50%" align="center">
-<img src="media/screenshots/docker-containers-healthy.jpg" width="100%" alt="Docker containers healthy" /><br/>
-<sub><b>Six containers, all healthy</b><br/>ClickHouse, ChromaDB, backend, frontend, Nginx, and Airflow on one Docker network.</sub>
-</td>
-</tr>
-</table>
+<p align="center">
+  <img src="media/screenshots/clickhouse-live-query.jpg" width="60%" alt="ClickHouse live query" />
+</p>
+<p align="center"><sub><b>Real data, queried live</b><br/>One ClickHouse database per team — this is Brazil's actual wage table, not a mock.</sub></p>
 
 ## Table of contents
 
