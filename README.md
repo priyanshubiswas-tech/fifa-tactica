@@ -130,7 +130,7 @@ Add `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_API_KEY` any time to switc
 
 ## Architecture
 
-For a browsable map of how every API/service/data store connects, open `obsidian-graph/` as an Obsidian vault (or just read the markdown; it renders fine on GitHub too).
+For a browsable map of how every API/service/data store connects, open `obsidian-graph/` as an Obsidian vault.
 
 ```mermaid
 flowchart LR
