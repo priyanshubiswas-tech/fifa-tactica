@@ -132,7 +132,7 @@ Add `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_API_KEY` any time to switc
 
 For a browsable map of how every API/service/data store connects, open `obsidian-graph/` as an Obsidian vault.
 
-<img src="media/Airflow Graph1.png" alt="Tactica-Data-Flow" width="100%" />
+<img src="media/Tactica_architecture_flow.png" alt="Tactica-Data-Flow" width="100%" />
 
 ```mermaid
 flowchart LR
