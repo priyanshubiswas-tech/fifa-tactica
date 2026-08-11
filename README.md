@@ -134,6 +134,8 @@ For a browsable map of how every API/service/data store connects, open `obsidian
 
 <img src="media/Tactica_architecture_flow.png" alt="Tactica-Data-Flow" width="100%" />
 
+Simplified Representation.
+
 ```mermaid
 flowchart LR
     ext["Wikipedia + TheSportsDB (real) + mock generators"] --> raw["raw_data_store"]
