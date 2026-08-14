@@ -1,21 +1,21 @@
 # frontend
 
-Vite + React + Tailwind. The real app: login, dashboard, inspect, tactics, news, and a persistent chat panel — matching the wireframes in `../Tactica_Architecture (1).pdf` (local reference only, gitignored, see root README). Verified end-to-end in a real browser via Playwright.
+Vite + React + Tailwind. The real app: login, dashboard, inspect, tactics, news, and a persistent chat panel, matching the wireframes in `../Tactica_Architecture (1).pdf` (local reference only, gitignored, see root README). Verified end-to-end in a real browser via Playwright.
 
-This is the **only** place in the repo where the product's public brand name ("Tactica") is meant to appear — everything else (services, database names, code, docs) intentionally uses the neutral internal name `squad-console`.
+This is the **only** place in the repo where the product's public brand name ("Tactica") is meant to appear, everything else (services, database names, code, docs) intentionally uses the neutral internal name `squad-console`.
 
 ## Pages
 
-- **`Login`** — grid of 8 crest cards (incl. Cape Verde, with a layered crest+manager-photo badge), tap to select (no text input). Calls `POST /api/session/select-team`, stores `{team_code, manager_name}` in `TeamContext` (localStorage-backed), navigates to `/dashboard`.
-- **`Dashboard`** — own team, full data: metric cards, formation cards (recommended one highlighted), injury list, top performers, a sortable squad table.
-- **`InspectSquad`** — team picker for the other 7 teams; blurred placeholders (lock icon + "Private to {team} staff") wherever the backend sent `null` for injuries/salaries/training load; formations show name + `suitable_vs` only.
-- **`Tactics`** — full formation library for the active team, each with an SVG pitch diagram (`components/PitchDiagram.tsx`) built from the real `players_json` lineup.
-- **`News`** — honest placeholder; the RSS fetcher isn't built yet (see root README roadmap).
-- **`ChatPanel`** (persistent, every page) — 3 chips (`/api/reports/*`, zero LLM) + a free-form chatbox (`/api/chat`, the LangGraph agent - gracefully degrades without an LLM key). Both render through the same message-bubble code, since both return `{text, chart_url}`.
+- **`Login`** : grid of 8 crest cards (incl. Cape Verde, with a layered crest+manager-photo badge), tap to select (no text input). Calls `POST /api/session/select-team`, stores `{team_code, manager_name}` in `TeamContext` (localStorage-backed), navigates to `/dashboard`.
+- **`Dashboard`** : own team, full data: metric cards, formation cards (recommended one highlighted), injury list, top performers, a sortable squad table.
+- **`InspectSquad`** : team picker for the other 7 teams; blurred placeholders (lock icon + "Private to {team} staff") wherever the backend sent `null` for injuries/salaries/training load; formations show name + `suitable_vs` only.
+- **`Tactics`** : full formation library for the active team, each with an SVG pitch diagram (`components/PitchDiagram.tsx`) built from the real `players_json` lineup.
+- **`News`** : honest placeholder; the RSS fetcher isn't built yet (see root README roadmap).
+- **`ChatPanel`** (persistent, every page) : 3 chips (`/api/reports/*`, zero LLM) + a free-form chatbox (`/api/chat`, the LangGraph agent, gracefully degrades without an LLM key). Both render through the same message-bubble code, since both return `{text, chart_url}`.
 
 ## Identity: cookie vs. localStorage
 
-The backend trusts an **httpOnly** `X-Active-Team` cookie for access control - JS can't read it, by design. `TeamContext` is a separate, purely client-side mirror (localStorage) of `{team_code, manager_name}`, used only to render the header/sidebar/accent color. Both are set together in `Header.tsx`'s team-switch handler, which then does a full `window.location.href` reload (per the original spec: switching teams reloads the whole app) rather than a client-side route change, since every page's data is scoped to the active team.
+The backend trusts an **httpOnly** `X-Active-Team` cookie for access control. JS can't read it, by design. `TeamContext` is a separate, purely client-side mirror (localStorage) of `{team_code, manager_name}`, used only to render the header/sidebar/accent color. Both are set together in `Header.tsx`'s team-switch handler, which then does a full `window.location.href` reload (per the original spec: switching teams reloads the whole app) rather than a client-side route change, since every page's data is scoped to the active team.
 
 ## Local development (without Docker)
 
@@ -35,4 +35,4 @@ Multi-stage build: `node:20-alpine` builds the static bundle (receiving `VITE_AP
 
 ## Vercel
 
-`vercel.json` adds the same SPA rewrite (`/(.*) -> /index.html`) as `nginx.conf`, since Vercel's static hosting has no equivalent by default and 404s on any client-side route otherwise. Deploy with `VITE_BACKEND_URL` and `VITE_API_KEY` passed as build-time env (`--build-env`, since Vite only bakes vars in at build) pointing at a publicly reachable backend — see the root README's [Deployment: Vercel + Cloudflare Tunnel](../README.md#deployment-vercel--cloudflare-tunnel) for the full walkthrough, including the CORS/cookie/SSO-protection gotchas.
+`vercel.json` adds the same SPA rewrite (`/(.*) -> /index.html`) as `nginx.conf`, since Vercel's static hosting has no equivalent by default and 404s on any client-side route otherwise. Deploy with `VITE_BACKEND_URL` and `VITE_API_KEY` passed as build-time env (`--build-env`, since Vite only bakes vars in at build) pointing at a publicly reachable backend, see the root README's [Deployment: Vercel + Cloudflare Tunnel](../README.md#deployment-vercel--cloudflare-tunnel) for the full walkthrough, including the CORS/cookie/SSO-protection gotchas.
